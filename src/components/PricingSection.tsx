@@ -57,7 +57,7 @@ const PricingSection = () => {
   const quantities = Object.keys(current.sizes[0].prices);
 
   return (
-    <section id="pricing" className="py-24 lg:py-32">
+    <section id="pricing" className="py-16 sm:py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           ref={ref}
