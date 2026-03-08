@@ -58,7 +58,7 @@ const HeroSection = () => {
         >
           <a
             href="#products"
-            className="bg-gradient-gold text-primary-foreground px-8 py-4 rounded-full font-body font-semibold text-base hover:opacity-90 transition-opacity"
+            className="bg-gradient-gold text-primary-foreground px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-body font-semibold text-sm sm:text-base hover:opacity-90 transition-opacity"
           >
             Explore Products
           </a>
