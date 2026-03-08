@@ -21,7 +21,7 @@ const GallerySection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="gallery" className="py-24 lg:py-32 bg-gradient-section">
+    <section id="gallery" className="py-16 sm:py-24 lg:py-32 bg-gradient-section">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           ref={ref}

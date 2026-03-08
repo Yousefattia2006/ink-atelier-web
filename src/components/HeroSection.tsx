@@ -64,7 +64,7 @@ const HeroSection = () => {
           </a>
           <a
             href="#contact"
-            className="border border-gold text-foreground px-8 py-4 rounded-full font-body font-semibold text-base hover:bg-primary/10 transition-colors"
+            className="border border-gold text-foreground px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-body font-semibold text-sm sm:text-base hover:bg-primary/10 transition-colors"
           >
             Get a Quote
           </a>

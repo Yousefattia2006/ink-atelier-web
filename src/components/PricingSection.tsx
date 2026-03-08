@@ -97,13 +97,13 @@ const PricingSection = () => {
           transition={{ duration: 0.4 }}
           className="max-w-3xl mx-auto"
         >
-          <div className="rounded-xl border border-border overflow-hidden bg-card">
-            <table className="w-full">
+          <div className="rounded-xl border border-border overflow-hidden bg-card overflow-x-auto">
+            <table className="w-full min-w-[400px]">
               <thead>
                 <tr className="border-b border-border">
-                  <th className="text-left font-body font-semibold text-sm text-muted-foreground px-6 py-4">Size</th>
+                  <th className="text-left font-body font-semibold text-xs sm:text-sm text-muted-foreground px-3 sm:px-6 py-3 sm:py-4">Size</th>
                   {quantities.map((q) => (
-                    <th key={q} className="text-center font-body font-semibold text-sm text-muted-foreground px-4 py-4">
+                    <th key={q} className="text-center font-body font-semibold text-xs sm:text-sm text-muted-foreground px-2 sm:px-4 py-3 sm:py-4">
                       {q} {Number(q) > 10 ? "copies" : "units"}
                     </th>
                   ))}
@@ -112,9 +112,9 @@ const PricingSection = () => {
               <tbody>
                 {current.sizes.map((row, i) => (
                   <tr key={row.size} className={i < current.sizes.length - 1 ? "border-b border-border" : ""}>
-                    <td className="font-body text-sm font-medium text-foreground px-6 py-4">{row.size}</td>
+                    <td className="font-body text-xs sm:text-sm font-medium text-foreground px-3 sm:px-6 py-3 sm:py-4">{row.size}</td>
                     {quantities.map((q) => (
-                      <td key={q} className="text-center font-body text-sm text-primary px-4 py-4 font-semibold">
+                      <td key={q} className="text-center font-body text-xs sm:text-sm text-primary px-2 sm:px-4 py-3 sm:py-4 font-semibold">
                         {row.prices[q as keyof typeof row.prices]}
                       </td>
                     ))}
