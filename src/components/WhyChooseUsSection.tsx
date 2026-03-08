@@ -1,17 +1,14 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Zap, Award, MapPin, Palette } from "lucide-react";
+import { useAdmin } from "@/contexts/AdminContext";
 
-const values = [
-  { icon: Zap, title: "Fast Turnaround", description: "Rush orders welcome. Most jobs completed within 24–48 hours." },
-  { icon: Award, title: "Premium Quality", description: "Top-grade materials and state-of-the-art printing technology." },
-  { icon: MapPin, title: "Nationwide Delivery", description: "We deliver across all of Egypt — Cairo to Aswan and everywhere in between." },
-  { icon: Palette, title: "Expert Design Support", description: "Our in-house designers can refine or create your artwork from scratch." },
-];
+const iconList = [Zap, Award, MapPin, Palette];
 
 const WhyChooseUsSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const { content } = useAdmin();
 
   return (
     <section className="py-16 sm:py-24 lg:py-32">
@@ -30,11 +27,11 @@ const WhyChooseUsSection = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {values.map((value, i) => {
-            const Icon = value.icon;
+          {content.values.map((value, i) => {
+            const Icon = iconList[i] || Zap;
             return (
               <motion.div
-                key={value.title}
+                key={i}
                 initial={{ opacity: 0, y: 50 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: i * 0.15 }}

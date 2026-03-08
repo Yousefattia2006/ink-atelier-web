@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
+import { useAdmin } from "@/contexts/AdminContext";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
+  const { content } = useAdmin();
+
   return (
     <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0">
         <motion.img
           src={heroBg}
@@ -18,7 +20,6 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
       </div>
 
-      {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -26,7 +27,7 @@ const HeroSection = () => {
           transition={{ delay: 0.4, duration: 0.8 }}
           className="font-body text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] text-primary mb-4 sm:mb-6"
         >
-          Egypt's Premium Print Partner
+          {content.hero.tagline}
         </motion.p>
 
         <motion.h1
@@ -35,9 +36,9 @@ const HeroSection = () => {
           transition={{ delay: 0.6, duration: 1 }}
           className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] mb-4 sm:mb-6"
         >
-          We Print
+          {content.hero.headline1}
           <br />
-          <span className="text-gradient-gold">Your Vision</span>
+          <span className="text-gradient-gold">{content.hero.headline2}</span>
         </motion.h1>
 
         <motion.p
@@ -46,8 +47,7 @@ const HeroSection = () => {
           transition={{ delay: 0.9, duration: 0.8 }}
           className="font-body text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-8 sm:mb-10 px-2"
         >
-          From business cards to large-format banners — premium quality printing
-          with nationwide delivery across Egypt.
+          {content.hero.description}
         </motion.p>
 
         <motion.div
@@ -71,7 +71,6 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
