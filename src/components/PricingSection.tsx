@@ -73,12 +73,12 @@ const PricingSection = () => {
         </motion.div>
 
         {/* Product Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
+        <div className="flex overflow-x-auto pb-2 sm:pb-0 sm:flex-wrap justify-start sm:justify-center gap-2 mb-8 sm:mb-12 -mx-6 px-6 sm:mx-0 sm:px-0 scrollbar-hide">
           {products.map((product, i) => (
             <button
               key={product.name}
               onClick={() => setActiveProduct(i)}
-              className={`font-body text-sm px-5 py-2.5 rounded-full transition-all duration-300 ${
+              className={`font-body text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 whitespace-nowrap flex-shrink-0 ${
                 i === activeProduct
                   ? "bg-gradient-gold text-primary-foreground font-semibold"
                   : "bg-secondary text-secondary-foreground hover:bg-muted"
