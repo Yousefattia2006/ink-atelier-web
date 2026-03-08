@@ -44,7 +44,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.8 }}
-          className="font-body text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-10"
+          className="font-body text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-8 sm:mb-10 px-2"
         >
           From business cards to large-format banners — premium quality printing
           with nationwide delivery across Egypt.
