@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { useAdmin } from "@/contexts/AdminContext";
 
 const navLinks = [
   { label: "Products", href: "#products" },
@@ -12,12 +14,22 @@ const navLinks = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { isAdmin } = useAdmin();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleLogoDoubleClick = () => {
+    if (isAdmin) {
+      navigate("/admin");
+    } else {
+      navigate("/admin-login");
+    }
+  };
 
   return (
     <motion.nav
@@ -31,9 +43,20 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16 lg:h-20">
-        <a href="#" className="font-display text-xl lg:text-2xl font-bold text-foreground tracking-tight">
+        <a
+          href="#"
+          onDoubleClick={handleLogoDoubleClick}
+          className="font-display text-xl lg:text-2xl font-bold text-foreground tracking-tight select-none"
+        >
           Crooque<span className="text-primary">.</span>
         </a>
+
+        {/* Admin indicator */}
+        {isAdmin && (
+          <span className="hidden lg:inline font-body text-xs bg-primary/20 text-primary px-2 py-0.5 rounded-full ml-2">
+            Admin
+          </span>
+        )}
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-8">

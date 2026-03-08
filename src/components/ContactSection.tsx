@@ -1,11 +1,13 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Send } from "lucide-react";
+import { useAdmin } from "@/contexts/AdminContext";
 
 const ContactSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [submitted, setSubmitted] = useState(false);
+  const { content } = useAdmin();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,11 +19,9 @@ const ContactSection = () => {
     <section id="contact" className="py-16 sm:py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-card border border-border rounded-xl sm:rounded-2xl p-5 sm:p-8 md:p-16 relative overflow-hidden">
-          {/* Decorative glow */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-            {/* Left */}
             <motion.div
               ref={ref}
               initial={{ opacity: 0, x: -40 }}
@@ -37,7 +37,7 @@ const ContactSection = () => {
                 Or reach out directly on WhatsApp for instant support.
               </p>
               <a
-                href="https://wa.me/201000000000"
+                href={`https://wa.me/${content.contact.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-[#25D366] text-primary-foreground px-6 py-3.5 rounded-full font-body font-semibold text-sm hover:opacity-90 transition-opacity"
@@ -49,7 +49,6 @@ const ContactSection = () => {
               </a>
             </motion.div>
 
-            {/* Right - Form */}
             <motion.form
               onSubmit={handleSubmit}
               initial={{ opacity: 0, x: 40 }}

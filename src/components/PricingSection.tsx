@@ -1,59 +1,16 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-
-const products = [
-  {
-    name: "Flyers",
-    sizes: [
-      { size: "A5", prices: { "100": "[PRICE]", "500": "[PRICE]", "1000": "[PRICE]" } },
-      { size: "A4", prices: { "100": "[PRICE]", "500": "[PRICE]", "1000": "[PRICE]" } },
-      { size: "A3", prices: { "100": "[PRICE]", "500": "[PRICE]", "1000": "[PRICE]" } },
-    ],
-  },
-  {
-    name: "Business Cards",
-    sizes: [
-      { size: "Standard (9×5cm)", prices: { "100": "[PRICE]", "500": "[PRICE]", "1000": "[PRICE]" } },
-      { size: "Premium (Thick Stock)", prices: { "100": "[PRICE]", "500": "[PRICE]", "1000": "[PRICE]" } },
-    ],
-  },
-  {
-    name: "Posters",
-    sizes: [
-      { size: "A3", prices: { "100": "[PRICE]", "500": "[PRICE]", "1000": "[PRICE]" } },
-      { size: "A2", prices: { "100": "[PRICE]", "500": "[PRICE]", "1000": "[PRICE]" } },
-      { size: "A1", prices: { "100": "[PRICE]", "500": "[PRICE]", "1000": "[PRICE]" } },
-    ],
-  },
-  {
-    name: "Banners & Roll-ups",
-    sizes: [
-      { size: "Roll-up (85×200cm)", prices: { "1": "[PRICE]", "5": "[PRICE]", "10": "[PRICE]" } },
-      { size: "Vinyl Banner (Custom)", prices: { "1": "[PRICE]", "5": "[PRICE]", "10": "[PRICE]" } },
-    ],
-  },
-  {
-    name: "Stickers & Labels",
-    sizes: [
-      { size: "Sheet Stickers (A4)", prices: { "100": "[PRICE]", "500": "[PRICE]", "1000": "[PRICE]" } },
-      { size: "Die-Cut (Custom)", prices: { "100": "[PRICE]", "500": "[PRICE]", "1000": "[PRICE]" } },
-    ],
-  },
-  {
-    name: "Brochures",
-    sizes: [
-      { size: "Bi-fold A4", prices: { "100": "[PRICE]", "500": "[PRICE]", "1000": "[PRICE]" } },
-      { size: "Tri-fold A4", prices: { "100": "[PRICE]", "500": "[PRICE]", "1000": "[PRICE]" } },
-    ],
-  },
-];
+import { useAdmin } from "@/contexts/AdminContext";
 
 const PricingSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [activeProduct, setActiveProduct] = useState(0);
+  const { content } = useAdmin();
 
+  const products = content.pricing;
   const current = products[activeProduct];
+  if (!current) return null;
   const quantities = Object.keys(current.sizes[0].prices);
 
   return (
@@ -72,7 +29,6 @@ const PricingSection = () => {
           </h2>
         </motion.div>
 
-        {/* Product Tabs */}
         <div className="flex overflow-x-auto pb-2 sm:pb-0 sm:flex-wrap justify-start sm:justify-center gap-2 mb-8 sm:mb-12 -mx-6 px-6 sm:mx-0 sm:px-0 scrollbar-hide">
           {products.map((product, i) => (
             <button
@@ -89,7 +45,6 @@ const PricingSection = () => {
           ))}
         </div>
 
-        {/* Pricing Table */}
         <motion.div
           key={activeProduct}
           initial={{ opacity: 0, y: 20 }}
@@ -123,7 +78,7 @@ const PricingSection = () => {
               </tbody>
             </table>
           </div>
-          <p className="font-body text-xs text-muted-foreground text-center mt-6 text-text-dim">
+          <p className="font-body text-xs text-muted-foreground text-center mt-6">
             All prices include design review. Final price confirmed after artwork check.
           </p>
         </motion.div>
