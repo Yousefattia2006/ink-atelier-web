@@ -8,9 +8,9 @@ import gallery5 from "@/assets/gallery-5.jpg";
 import gallery6 from "@/assets/gallery-6.jpg";
 
 const images = [
-  { src: gallery1, alt: "Print production workspace", span: "col-span-2 row-span-2" },
+  { src: gallery1, alt: "Print production workspace", span: "sm:col-span-2 sm:row-span-2" },
   { src: gallery2, alt: "Printing press in action", span: "col-span-1 row-span-1" },
-  { src: gallery3, alt: "Gold foil invitations", span: "col-span-1 row-span-2" },
+  { src: gallery3, alt: "Gold foil invitations", span: "sm:col-span-1 sm:row-span-2" },
   { src: gallery4, alt: "Branded packaging", span: "col-span-1 row-span-1" },
   { src: gallery5, alt: "Restaurant menu prints", span: "col-span-1 row-span-1" },
   { src: gallery6, alt: "Sticker printing machine", span: "col-span-1 row-span-1" },
