@@ -8,9 +8,9 @@ import gallery5 from "@/assets/gallery-5.jpg";
 import gallery6 from "@/assets/gallery-6.jpg";
 
 const images = [
-  { src: gallery1, alt: "Print production workspace", span: "col-span-2 row-span-2" },
+  { src: gallery1, alt: "Print production workspace", span: "sm:col-span-2 sm:row-span-2" },
   { src: gallery2, alt: "Printing press in action", span: "col-span-1 row-span-1" },
-  { src: gallery3, alt: "Gold foil invitations", span: "col-span-1 row-span-2" },
+  { src: gallery3, alt: "Gold foil invitations", span: "sm:col-span-1 sm:row-span-2" },
   { src: gallery4, alt: "Branded packaging", span: "col-span-1 row-span-1" },
   { src: gallery5, alt: "Restaurant menu prints", span: "col-span-1 row-span-1" },
   { src: gallery6, alt: "Sticker printing machine", span: "col-span-1 row-span-1" },
@@ -21,7 +21,7 @@ const GallerySection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="gallery" className="py-24 lg:py-32 bg-gradient-section">
+    <section id="gallery" className="py-16 sm:py-24 lg:py-32 bg-gradient-section">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -36,7 +36,7 @@ const GallerySection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 auto-rows-[200px] md:auto-rows-[250px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 auto-rows-[180px] sm:auto-rows-[200px] md:auto-rows-[250px]">
           {images.map((img, i) => (
             <motion.div
               key={i}

@@ -3,7 +3,7 @@ import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <motion.img
@@ -19,12 +19,12 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="font-body text-sm uppercase tracking-[0.3em] text-primary mb-6"
+          className="font-body text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] text-primary mb-4 sm:mb-6"
         >
           Egypt's Premium Print Partner
         </motion.p>
@@ -33,7 +33,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 1 }}
-          className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.95] mb-6"
+          className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] mb-4 sm:mb-6"
         >
           We Print
           <br />
@@ -44,7 +44,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.8 }}
-          className="font-body text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-10"
+          className="font-body text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-8 sm:mb-10 px-2"
         >
           From business cards to large-format banners — premium quality printing
           with nationwide delivery across Egypt.
@@ -58,13 +58,13 @@ const HeroSection = () => {
         >
           <a
             href="#products"
-            className="bg-gradient-gold text-primary-foreground px-8 py-4 rounded-full font-body font-semibold text-base hover:opacity-90 transition-opacity"
+            className="bg-gradient-gold text-primary-foreground px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-body font-semibold text-sm sm:text-base hover:opacity-90 transition-opacity"
           >
             Explore Products
           </a>
           <a
             href="#contact"
-            className="border border-gold text-foreground px-8 py-4 rounded-full font-body font-semibold text-base hover:bg-primary/10 transition-colors"
+            className="border border-gold text-foreground px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-body font-semibold text-sm sm:text-base hover:bg-primary/10 transition-colors"
           >
             Get a Quote
           </a>

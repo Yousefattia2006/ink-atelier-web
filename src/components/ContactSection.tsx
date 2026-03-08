@@ -14,9 +14,9 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="bg-card border border-border rounded-2xl p-8 md:p-16 relative overflow-hidden">
+    <section id="contact" className="py-16 sm:py-24 lg:py-32">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-card border border-border rounded-xl sm:rounded-2xl p-5 sm:p-8 md:p-16 relative overflow-hidden">
           {/* Decorative glow */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
